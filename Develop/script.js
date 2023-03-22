@@ -22,3 +22,18 @@ function updateBlocks() {
   $(".time-block").each(function() {
     let blockHour = parseInt($(this).attr("id").split("-")[1]);
     console.log(blockHour);
+
+    if (blockHour < currentHour) {
+      $(this).addClass("past");
+      $(this).removeClass("future");
+      $(this).removeClass("present");
+    } else if (blockHour === currentHour) {
+      $(this).removeClass("past");
+      $(this).removeClass("future");
+      $(this).addClass("present");
+    } else if (blockHour > currentHour) {
+      $(this).removeClass("past")
+      $(this).removeClass("present")
+      $(this).addClass("future");
+    }
+    
