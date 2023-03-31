@@ -24,17 +24,11 @@ function updateBlocks() {
     console.log(blockHour);
 
     if (blockHour < currentHour) {
-      $(this).addClass("past");
-      $(this).removeClass("future");
-      $(this).removeClass("present");
+      $(this)[0].className = "row time-block past";
     } else if (blockHour === currentHour) {
-      $(this).removeClass("past");
-      $(this).removeClass("future");
-      $(this).addClass("present");
+      $(this)[0].className = "row time-block present";
     } else if (blockHour > currentHour) {
-      $(this).removeClass("past")
-      $(this).removeClass("present")
-      $(this).addClass("future");
+      $(this)[0].className = "row time-block future";
     }
   });
 }
